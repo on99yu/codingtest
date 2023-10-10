@@ -1,34 +1,14 @@
-subject_num = 3
-score_list=0
-학점의총합 =0
-for i in range(subject_num):
-    N = list(map(str, input().split()))
-    credit = float(N[1])
-    학점의총합 =+ credit
-    if N[2] == "A+":
-        score=4.5 
-    elif N[2] == "A0":
-        score =4.0
-    elif N[2] == "B+":
-        score =3.5
-    elif N[2] == "B0":
-        score =3.0
-    elif N[2] == "C+":
-        score =2.5
-    elif N[2] == "C0":
-        score =2.0
-    elif N[2] == "D+":
-        score =1.5
-    elif N[2] == "D0":
-        score =1.0
-    elif N[2] == "F":
-        score =0.0
-    elif N[2] == "P":
-        subject_num =- 1
-        학점의총합 =- credit
-        score = 0
-        credit = 0
+rating = ["A+","A0","B+","B0","C+","C0","D+","D0","F"]
+grade = [ 4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0]
 
-    score_list =+ credit*score
+total = 0
+result = 0
 
-print(score_list/학점의총합)
+for i in range(20):
+    s, p, g = input().split()
+    p = float(p)
+    if g != 'P':
+        total += p
+        result += p* grade[rating.index(g)]
+
+print('%.6f'%(result/total))
