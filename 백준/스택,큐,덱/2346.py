@@ -1,16 +1,17 @@
 from collections import deque
 N = int(input())
-Deque = deque(map(int, input().split()))
-# for i in range(N):
+Deque = deque(enumerate(map(int, input().split())))
 stack = []
-i = 0 
-while True:
-    if len(Deque) == 0:
-        break
-    while 
-    if Deque[i] > 0:
-        K = Deque[i]
 
-    Deque[i]
+while Deque:
+    idx, bal = Deque.popleft()
+    stack.append(idx+1)
+    if bal > 0:
+        for i in range(bal-1):
+            Deque.rotate(-1)
+    if bal < 0:
+        for i in range(abs(bal)):
+            Deque.rotate(1)
+        
 for i in stack:
-    print(i, end="")
+    print(i, end=" ")
